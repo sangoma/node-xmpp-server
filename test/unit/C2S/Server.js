@@ -23,4 +23,16 @@ describe('C2S Server', function () {
   it('has C2S Session as default session', function () {
     assert.equal(C2SServer.prototype.Session, C2SSession)
   })
+  it('defaults sendSessionFeature to true', function () {
+    var s = new C2SServer()
+    assert.strictEqual(s.sendSessionFeature, true)
+    s = new C2SServer({})
+    assert.strictEqual(s.sendSessionFeature, true)
+  })
+  it('sets sendSessionFeature property from option', function () {
+    var s = new C2SServer({sendSessionFeature: true})
+    assert.strictEqual(s.sendSessionFeature, true)
+    s = new C2SServer({sendSessionFeature: false})
+    assert.strictEqual(s.sendSessionFeature, false)
+  })
 })

@@ -30,4 +30,24 @@ describe('C2S Session', function () {
       })
     })
   })
+  describe('stream features', function () {
+    it('contains <session xmlns="urn:ietf:params:xml:ns:xmpp-session"/> if server sendSessionFeature is true', function () {
+      var session = new Session({
+        server: {sendSessionFeature: true}
+      })
+      session.authenticated = true
+      var send = sinon.spy(session, 'send')
+      session.sendFeatures()
+      assert(send.getCall(0).args[0].getChild('session', 'urn:ietf:params:xml:ns:xmpp-session'))
+    })
+    it('does not contain <session xmlns="urn:ietf:params:xml:ns:xmpp-session"/> if server sendSessionFeature is false', function () {
+      var session = new Session({
+        server: {sendSessionFeature: false}
+      })
+      session.authenticated = true
+      var send = sinon.spy(session, 'send')
+      session.sendFeatures()
+      assert.equal(send.getCall(0).args[0].getChild('session', 'urn:ietf:params:xml:ns:xmpp-session'), undefined)
+    })
+  })
 })
