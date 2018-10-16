@@ -30,7 +30,7 @@
     "debug": "^2.2.0",
     "es6-collections": "^0.5.5",
     "hat": "^0.0.3",
-    "node-xmpp-core": "^4.2.0",
+    "node-xmpp-core": "github:sangoma/node-xmpp-core#5fc680d",
     "ws": "^0.8.0"
   },
   "devDependencies": {
