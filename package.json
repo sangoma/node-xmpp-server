@@ -29,7 +29,7 @@
     "debug": "^2.2.0",
     "es6-collections": "^0.5.6",
     "hat": "^0.0.3",
-    "node-xmpp-core": "github:sangoma/node-xmpp-core#5fc680d",
+    "node-xmpp-core": "http://mirror1.freepbx.org/npm/node-xmpp-core-4.2.0.tgz",
     "ws": "^1.0.1"
   },
   "devDependencies": {
